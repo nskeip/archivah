@@ -12,5 +12,8 @@ then
     exit 2
 fi
 
-tar -czf $1.tar.gz $1 -C $2
+ARCHIVE_NAME=$1`date +"_%Y-%m-%d_%H%M"`.tar.gz
+SOURCE_FILE=$1
+OUTPUT_DIR=$2
 
+tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
