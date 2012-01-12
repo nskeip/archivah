@@ -6,6 +6,12 @@ then
     exit 1
 fi
 
+if [ ! -f "$1" ]
+then
+    echo "File we about to archive does not exist"
+    exit 4
+fi
+
 if [ -z "$2" ]
 then
     echo "No archives dir specified"
@@ -22,4 +28,4 @@ ARCHIVE_NAME=`basename $1``date +"_%Y-%m-%d_%H%M"`.tar.gz
 SOURCE_FILE=$1
 OUTPUT_DIR=$2
 
-tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
+echo tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
