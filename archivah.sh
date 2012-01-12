@@ -12,8 +12,14 @@ then
     exit 2
 fi
 
+if [ ! -d "$2" ]
+then
+    echo "Output dir does not exist"
+    exit 3
+fi
+
 ARCHIVE_NAME=`basename $1``date +"_%Y-%m-%d_%H%M"`.tar.gz
 SOURCE_FILE=$1
 OUTPUT_DIR=$2
 
-echo tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
+tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
