@@ -24,8 +24,8 @@ then
     exit 3
 fi
 
-ARCHIVE_NAME=`basename $1``date +"_%Y-%m-%d_%H%M"`.tar.gz
+ARCHIVE_NAME=`basename $1``date +"_%Y-%m-%d_%H%M"`.gz
 SOURCE_FILE=$1
 OUTPUT_DIR=$2
 
-tar -czf $OUTPUT_DIR/$ARCHIVE_NAME $SOURCE_FILE
+gzip -c $SOURCE_FILE > $OUTPUT_DIR/$ARCHIVE_NAME
